@@ -9,6 +9,8 @@ import math
 class Attention(nn.Module):
 	"""
 	Computed Scaled Dot Product Attention 
+	
+	与MultiHeadedAttention最大的不同：self-attention中没有需要学习的参数，纯粹就是矩阵相乘！！！
 
 	torch.mm 是二维张量相乘
 	torch.bmm是三维张量相乘
