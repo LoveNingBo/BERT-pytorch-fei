@@ -14,7 +14,7 @@ class MultiHeadedAttention(nn.Module):
 
 		"""
 		模型的维度需要能够整除 “头数”，例如query为512维，经过线性映射后还是512维，多头数为8，那么每个头的维度为512/8=64
-		多头attention就是将 512维的 Q\W\V矩阵经过线形变换，然后512维的列向量拆分成8个64维的列向量，最终每个头再经过
+		多头attention就是将 512维的 Q\\W\\V矩阵经过线形变换，然后512维的列向量拆分成8个64维的列向量，最终每个头再经过
 		scaled_dot_product_attention计算得到各自的 八个 V'，然后concat到一起又恢复为512维，所以Transformer输入输出维度相等
 		"""
 	
