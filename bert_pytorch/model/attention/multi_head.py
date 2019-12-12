@@ -2,6 +2,18 @@
 import torch 
 from .single import Attention
 
+
+"""
+理解了 Scaled dot-product attention，Multi-head attention 也很容易理解啦。
+论文提到，他们发现将 Q、K、V 通过一个线性映射之后，分成 h 份，
+对每一份进行 scaled dot-product attention 效果更好。然后，
+把各个部分的结果合并起来，再次经过线性映射，得到最终的输出。
+这就是所谓的 multi-head attention。
+"""
+
+
+
+
 class MultiHeadedAttention(nn.Module):
 	"""
 	初始化时需要定义 “头数” 和模型尺寸

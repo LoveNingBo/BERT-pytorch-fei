@@ -10,6 +10,10 @@ embedding后经过位置编码，经过一个Multi-Head Attention，然后残差
 然后残差相加归一化，这就是Encoder的全部组成。
 事实上，Transformer编码器中没有self-attention模块，只有Multi-Head Attention模块，而Multi-Head Attention
 内部计算就是多个self-attention而已，其中self-attention是纯粹的矩阵相乘，没有任何需要学习的参数
+
+先将512的向量利用全连接层升维2048，再利用全连接层降回512维，
+或者也可以用两个卷积核大小为1的卷积来实现
+
 """
 
 

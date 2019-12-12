@@ -14,6 +14,8 @@ GELUs其实是 dropout、zoneout、Relus的综合，GELUs对于输入乘以一�
  这么设定使得当输入x减小的时候，输入会有一个更高的概率被dropout掉，这样的激活变换就会随机依赖于输入了。
 
  GELU(x)=0.5x(1+tanh[(2/π)^0.5 (x+0.044715*x^3)])
+
+ **********Bert与Transformer中用的方法不同，Transformer中就是用了一下ReLU*******
 """
 
 class GELU(nn.Module):
