@@ -14,7 +14,7 @@ class BERTEmbedding(nn.Module):
 	Bert Embedding 由三部分组成，
 	TokenEmbedding是单词embedding的结果，
 	PositionalEmbedding是位置编码，用sin、cos公式计算
-	SegmentEmbedding是用来区分段落的（不知道为什么初始化词向量是词表大小为3）
+	SegmentEmbedding是用来区分段落的（第一句的编码全为1，第二句的编码全为2，还有如果不够长的补齐编码是0，正好是3。）
 	"""
 
 	def __init__(self,vocab_size,embed_size,dropout=0.1):
