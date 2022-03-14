@@ -17,11 +17,11 @@ class BERTEmbedding(nn.Module):
 	SegmentEmbedding是用来区分段落的（第一句的编码全为1，第二句的编码全为2，还有如果不够长的补齐编码是0，正好是3。）
 	"""
 
-	def __init__(self,vocab_size,embed_size,dropout=0.1):
+	def __init__(self,vocab_size,embed_dim,dropout=0.1):
 		super().__init__()
-		self.token=TokenEmbedding(vocab_size=vocab_size,embed_size=embed_size)
-		self.position=PositionalEmbedding(d_model=self.token.embedding_dim)
-		self.segment=SegmentEmbedding(embed_size=self.token.embedding_size)
+		self.token=TokenEmbedding(vocab_size=vocab_size,embed_size=embed_dim)
+		self.position=PositionalEmbedding(d_model = embed_dim)
+		self.segment=SegmentEmbedding(embed_size = embed_dim)
 		self.dropout=nn.Dropout(p=dropout)
 		self.embed_size=embed_size
 
